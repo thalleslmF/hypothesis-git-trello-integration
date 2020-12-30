@@ -2,6 +2,7 @@ package com.example.domain.card;
 
 import com.example.infrastructure.entity.CardEntity;
 
+import java.util.Objects;
 import java.util.UUID;
 
 public class Card {
@@ -54,5 +55,28 @@ public class Card {
 
     public CardEntity toEntity() {
         return new CardEntity(this.name, this.cardType, this.authorId, this.description, UUID.randomUUID().toString());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Card card = (Card) o;
+        return Objects.equals(name, card.name) && cardType == card.cardType && Objects.equals(authorId, card.authorId) && Objects.equals(description, card.description);
+    }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "name='" + name + '\'' +
+                ", cardType=" + cardType +
+                ", authorId='" + authorId + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, cardType, authorId, description);
     }
 }
