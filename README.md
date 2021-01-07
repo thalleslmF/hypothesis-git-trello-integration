@@ -1,5 +1,5 @@
 
-# demo project
+# git-trello project
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
